@@ -1,19 +1,23 @@
 ---
-name: codebase-to-web
-description: "Agent skill: GitHub Agent Skill repo → self-contained single-file HTML walkthrough (meta, journey chat, user vs behind-the-scenes, tree, README bullets). Default web/<owner>-<repo>.html. Hosts: Cursor, Claude Code, Windsurf, OpenClaw. Match page language to the user. Lab·Canonical visuals + frontend-design discipline."
+name: web-learning-github
+description: "Agent skill (Web Learning GitHub): GitHub Agent Skill repo → self-contained single-file HTML walkthrough (meta, journey chat, surface vs backstage, tree, README bullets). Default web/<owner>-<repo>.html. Hosts: Cursor, Claude Code, Windsurf, OpenClaw. Match page language to user unless bilingual toggle requested. Lab·Canonical visuals + frontend-design discipline."
 ---
 
-# Agent Skill repo → single-file visual HTML (Codebase to Web)
+# Agent Skill repo → single-file visual HTML (Web Learning GitHub)
 
 ## Goal
 
-Deliver a **double-clickable** single HTML file that explains **who talks to whom after install/trigger**, with Star/Fork and repo layout context.
+Deliver a **double-clickable** single HTML file that explains **who talks to whom after install/trigger**, with Star/Fork and repo layout context—**learning / orientation**, not a shipping scaffold generator.
 
 ## Output language (required)
 
 - If the user writes mainly in **English**, generate the **entire HTML page in English** (headings, blurbs, journey copy, step labels, bullets, footer).
 - If the user writes mainly in **Chinese (中文)**, generate the **entire page in 中文**.
 - Mixed prompts: follow the **dominant** language; if unclear, **default to English** for this OSS bundle unless the user asks for 中文.
+
+### Optional: one file, EN / 中文 toggle
+
+If the user **explicitly** asks for **both languages in one HTML** with a **UI switch** (no second file): duplicate each user-visible block into paired sections (e.g. `div` with `class="i18n i18n-en"` / `i18n-zh`), add **EN | 中文** buttons or a `<select>`, and a few lines of JS that toggles `display` / `hidden` or a root `lang` class. **Default** the toggle to the user’s first message language or **English**. Keep **one** shared GitHub meta bar and **one** tree; translate labels only.
 
 ## File output rules
 

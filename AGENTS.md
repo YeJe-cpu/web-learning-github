@@ -2,7 +2,9 @@
 
 Publishable skill bundle: **`SKILL.md`** + **`references/`** (+ optional **`SKILL.zh-CN.md`**).
 
-- Former working folder name: `oss-skill-lab-html`; repo slug: **codebase-to-web**.
-- **Default output:** `web/` (generated pages usually gitignored).
-- **Hosts:** Cursor, Claude Code, Windsurf, OpenClaw — see `SKILL.md` table.
-- **What `references/` is:** not separate products; see `references/README.md`.
+- **Skill name (YAML):** `web-learning-github`
+- **Repo:** [YeJe-cpu/web-learning-github](https://github.com/YeJe-cpu/web-learning-github)
+- Earlier working names: `oss-skill-lab-html`, `codebase-to-web` (historical only).
+- **Default output:** `web/`（示例页 `web/demo.html` 纳入版本库；其余 `.html` 默认被 ignore）
+- **Hosts:** Cursor, Claude Code, Windsurf, OpenClaw — see `SKILL.md`.
+- **What `references/` is:** see `references/README.md`.

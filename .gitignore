@@ -1,5 +1,6 @@
-# Generated lab pages (regenerate with the skill)
+# Generated HTML (skill output); keep checked-in demo
 web/*.html
+!web/demo.html
 
 # OS
 .DS_Store

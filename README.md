@@ -1,130 +1,100 @@
-# Codebase to Web
+# Web Learning GitHub
 
-**Codebase to Web** is an **agent skill** for **Cursor**, **Claude Code**, **Windsurf**, **OpenClaw**, and similar hosts. Point it at an **Agent Skill repository** on GitHub and it produces a **single HTML file**: a **scrollable, visual map** of how **user-facing actions** connect to **what the host, model, and agents do underneath**—not a pile of tiny Markdown files, but one page you can **read like a UI/UX walkthrough**.
+An agent skill for Cursor, Claude Code, Windsurf, OpenClaw, and similar hosts. Point it at an Agent Skill repo on GitHub: you get a single self-contained HTML file that traces the UI/UX path—what you do in the product, and what the host, model, and agents do underneath. Meant for learning and getting oriented, not for turning code into a shipped web app.
 
-**Repo:** [github.com/YeJe-cpu/codebase-to-web](https://github.com/YeJe-cpu/codebase-to-web) · [中文说明](README.zh-CN.md)
+中文说明：[README.zh-CN.md](README.zh-CN.md) · Repository: [YeJe-cpu/web-learning-github](https://github.com/YeJe-cpu/web-learning-github)
 
 ---
 
 ## Who is this for?
 
-* **Vibe coders / learners** browsing GitHub who want to **get oriented fast**: install location, trigger phrases, and **which files load in what order**.  
-* **Anyone reading OSS skill repos** where the README sells the idea but the **real entrypoints** live in hooks, `references/`, or subcommands—this page lines up **visible path** and **backstage mechanics**.  
-* **People who need to ship or align**: one **double-clickable `.html`** (or a link) that explains the call graph to teammates or contributors.
+Vibe coders and anyone browsing GitHub who want to understand how a skill repo is wired: where to install it, what triggers it, and which files load in what order.
+
+Also useful when the README is high-level but the real entrypoints live under hooks, `references/`, or subcommands—you get one scrollable page instead of many small Markdown hops.
 
 ---
 
-## What’s inside the generated page?
+## What the page looks like
 
-You get **one self-contained `.html`** (no separate build step). Typical sections, top to bottom:
+Output is one HTML file (no bundler). Typical sections:
 
-1. **Repo meta bar** — link, stars, forks, created-at, with an optional **snapshot** timestamp in the footer.  
-2. **Plain-language intro** — what the repo is **for**, in one breath.  
-3. **Component path (step-through)** — chat-style beats: user input → host/routing → which `SKILL.md` / `references/` loads → next model or agent move. Length follows the **real** repo; no forced “always four bubbles.”  
-4. **Steps (surface vs backstage)** — what you **do in the UI** vs **what runs behind** (files read, hooks, commands).  
-5. **Repository tree** — matches the repo layout so you can spot paths **not spelled out in the README**.  
-6. **README context bullets** — short signals: demand, distribution, moat-ish notes, compliance flags—**fewer browser tabs**.  
-7. **Visual system** — default **Lab·Canonical** (warm editorial type, comfortable measure); avoids cliché purple gradients and generic Inter hero type. Optional cool/engineering variants on request. Informed by [Anthropic `frontend-design`](https://github.com/anthropics/skills/tree/main/skills/frontend-design).
+- Repo meta (link, stars, forks, created time; optional snapshot note in the footer)
+- Short plain-language intro
+- Step-through component path (user → host → which `SKILL.md` / `references/` → next agent step)—length follows the real repo
+- Surface vs backstage steps for each phase
+- Repository tree
+- Short README context bullets (demand, spread, caveats)
+- Typography and layout follow our default design token Lab·Canonical (warm editorial style); ideas align with [Anthropic frontend-design](https://github.com/anthropics/skills/tree/main/skills/frontend-design). First load may fetch Google Fonts; after that it can work offline from cache.
 
-**Google Fonts** may need **one online load** the first time you open the file; after that it can be viewed offline in the browser cache.
+### Demo
 
-### Screenshots in this README
+See [`web/demo.html`](web/demo.html) for a bilingual (EN / 中文) sample you can open locally after cloning. Optional screenshot for this README: put `assets/demo-screenshot.png` in the repo and use `![Demo](./assets/demo-screenshot.png)`.
 
-Add an image file (e.g. `assets/preview.png`) and reference it:
+---
 
-```markdown
-![Example page](./assets/preview.png)
+## How to use
+
+1. Copy the `web-learning-github` folder into your host’s skills directory (examples below).
+2. In chat, ask for an HTML walkthrough of a repo (see trigger phrases).
+
+| Host | Typical path |
+|------|----------------|
+| Cursor | e.g. `.agents/skills/web-learning-github/` in the project |
+| Claude Code | e.g. `~/.claude/skills/web-learning-github/` |
+| Windsurf | follow current product docs |
+| OpenClaw | e.g. `~/.openclaw/skills/` or workspace `skills/` — [OpenClaw · Skills](https://docs.openclaw.ai/skills/) |
+
+Generated pages default to `web/<owner>-<repo>.html`. You can override the folder in the prompt. Output language (or a bilingual toggle in one file) is described in `SKILL.md` and `SKILL.zh-CN.md`.
+
+### Trigger phrases
+
+- “Turn `owner/repo` into one HTML that maps install → trigger → file order.”
+- “Component path first as bubbles, then surface vs backstage steps.”
+- “One HTML with EN / 中文 toggle for every section.”
+- 「把这个仓库做成一页路径说明 HTML。」
+
+---
+
+## Design philosophy
+
+Path before long prose. Prefer a step-through call graph over walls of text. One file you can share or archive.
+
+---
+
+## Skill layout
+
 ```
-
-GitHub renders Markdown images automatically once the file is in the repo.
-
----
-
-## What we optimize for
-
-* **Path first** — **who loads whom** before long prose.  
-* **Surface × backstage** — tie each user-visible step to **model/agent behavior**.  
-* **One artifact** — a **single overview page**, not a mandatory quiz-based “course loop” (different use case from deep **application-code** curricula—see acknowledgements).  
-* **Less tab-hopping** — stars, tree, and README angles on **one** page.
-
----
-
-## What’s in this repository?
-
-The clone **is** the publishable skill bundle:
-
-```
-codebase-to-web/
-├── SKILL.md              # primary instructions (most hosts read this)
-├── SKILL.zh-CN.md        # Chinese mirror (optional; merge if your host reads one file)
-├── references/           # layout, checklist, design constraints for HTML generation
-├── web/                  # default output folder (generated .html usually gitignored; may contain .gitkeep)
+web-learning-github/
+├── SKILL.md
+├── SKILL.zh-CN.md
+├── references/
+├── web/
+│   └── demo.html       # committed sample; other web/*.html usually gitignored
 ├── README.md
 ├── README.zh-CN.md
 └── LICENSE
 ```
 
-| Path | Role |
-|------|------|
-| `SKILL.md`, `SKILL.zh-CN.md` | Generation rules, section order, **output language** policy |
-| `references/` | See [`references/README.md`](references/README.md) |
-| `web/` | Default save location, typically `web/<owner>-<repo>.html` |
+Details for `references/` are in [`references/README.md`](references/README.md).
 
 ---
 
-## Install
+## Acknowledgements
 
-Copy the **`codebase-to-web`** folder into the skills path your host expects:
+[zarazhangrui/codebase-to-course](https://github.com/zarazhangrui/codebase-to-course) (*Codebase to Course*) turns application codebases into rich, interactive single-page courses (modules, quizzes, visualizations)—a different and valuable problem. We borrow the idea of putting a clear **component path / timeline** up front; our focus is Agent Skill repos and a single-page map of user action vs agent behavior, without a mandatory course loop. Both can coexist. If our comparison misstates their current README, open an issue.
 
-| Host | Typical location |
-|------|------------------|
-| **Cursor** | e.g. `.agents/skills/codebase-to-web/` in the project |
-| **Claude Code** | e.g. `~/.claude/skills/codebase-to-web/` |
-| **Windsurf** | per current product docs |
-| **OpenClaw** | e.g. `~/.openclaw/skills/` or workspace `skills/` — [OpenClaw · Skills](https://docs.openclaw.ai/skills/) |
-
-**Page language** (all-English vs all-Chinese) follows the skill files—see `SKILL.md` / `SKILL.zh-CN.md`.
-
-### Default output path
-
-**`web/<owner>-<repo>.html`**, or override in your prompt.
-
----
-
-## Example prompts
-
-* “Generate a single HTML for `owner/repo` that maps **install → trigger → file order**.”  
-* “Put the **component path** first as step-through bubbles, then **surface vs backstage** steps.”  
-* “把这个仓库做成一页可调用的路径说明 HTML。”
-
----
-
-## Design notes (short)
-
-**Path before essays**; **prefer step-through over walls of text**; **one sharable `.html`**.
-
----
-
-## Acknowledgements (and how this relates to *Codebase to Course*)
-
-We’re grateful for **[zarazhangrui/codebase-to-course](https://github.com/zarazhangrui/codebase-to-course)** (*Codebase to Course*)—a polished project that turns codebases into **structured, course-like learning**. A high star count there mostly tells you **the problem is real**, not that smaller tools “lose by comparison.”
-
-**Different lane:** they shine on **deep, curriculum-style walks through application code**; we focus on **one visual HTML map** for **Agent Skill repos**—install/trigger/load order and **what happens under each user action**. Both can coexist.
-
-| | Codebase to Course | Codebase to Web |
+| | Codebase to Course | Web Learning GitHub |
 |---|---|---|
-| Typical input | Application / product repos | **Skill** bundles (`SKILL.md`, hooks, `references/`) |
-| Experience | Modular, course-shaped depth | **Single-page** overview; **no mandatory Q&A course loop** |
-| Idea we borrowed | Strong **component-path / timeline** clarity | Same: put the **step-through path up front** |
-| Our emphasis | — | **User step ↔ model/agent behavior**; stars, tree, README context on one page |
-
-If anything here misstates their latest behavior, open an issue and we’ll fix the copy.
+| Typical input | Application / product repos | Skill bundles (`SKILL.md`, hooks, `references/`) |
+| Experience shape | Course-style depth | One-page overview |
+| Shared idea | Clear ordering of who loads whom | Same: step-through path first |
+| Emphasis here | — | User step ↔ model/agent; meta, tree, README hints on one page |
 
 ---
 
 ## License
 
-MIT — [LICENSE](LICENSE).
+MIT — see [LICENSE](LICENSE).
 
 ## Contributing
 
