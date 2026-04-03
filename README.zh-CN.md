@@ -10,6 +10,12 @@
 
 ---
 
+## GitHub 上到底是什么
+
+这里发布的是 **可分享的 skill 包**（原迭代名 **`oss-skill-lab-html`**，仓库名 **codebase-to-web**）。**没有**把你整个 `emo专用` 工作区或其它「材料文件夹」上传上去；他人 `git clone` 只会得到本仓库根目录这些文件。可选说明见 [docs/README.md](docs/README.md)。
+
+---
+
 ## 适合谁？
 
 **「收了 skill 还要交付的人」** —— 你已在使用 **Cursor / Claude Code / Windsurf / OpenClaw** 等。你会 **star 或内置** 各类 `SKILL.md` 仓库，但缺一张 **安装 → 触发 → 读哪些文件 → README 意味着什么** 的总图。
@@ -31,11 +37,14 @@
 | 宿主 | 常见路径（示例） |
 |------|------------------|
 | **Cursor** | 如项目内 `.agents/skills/codebase-to-web/` |
-| **Claude Code** | 如 `~/.claude/skills/codebase-to-web/`（其他 CLI 式宿主以官方为准） |
+| **Claude Code** | 如 `~/.claude/skills/codebase-to-web/`（口语音常被听写成 **Cloud Code**，指同一产品） |
 | **Windsurf** | 以当前官方文档中的项目级 skills 为准 |
-| **OpenClaw** | 如 `~/.openclaw/skills/`、`~/.agents/skills/` 或工作区 `skills/`，加载优先级见 [OpenClaw · Skills](https://docs.openclaw.ai/skills/) |
+| **OpenClaw** | 如 `~/.openclaw/skills/`、`~/.agents/skills/` 或工作区 `skills/`，见 [OpenClaw · Skills](https://docs.openclaw.ai/skills/)（中文社群口语「**龙虾**」多指 **OpenClaw**，文档与 journey 里请写规范名） |
 
-保留 `SKILL.md` 与 `references/` 结构。然后对模型说：**「把 `owner/repo` 做成 Skill 实验室单页。」**
+保留 **`SKILL.md` + `SKILL.zh-CN.md` + `references/`**（含 `*.zh-CN.md` 镜像）。多数宿主默认只读 `SKILL.md`；中文说明可合并进一份或按团队约定 symlink。  
+**产出语言：** 见 `SKILL.md` / `SKILL.zh-CN.md` —— 英文对话 → 整页英文，中文对话 → 整页中文。
+
+然后对模型说：**「把 `owner/repo` 做成 Skill 实验室单页。」**
 
 ### 产出路径
 
@@ -63,8 +72,9 @@
 ```
 codebase-to-web/
 ├── SKILL.md
+├── SKILL.zh-CN.md
 ├── references/
-├── docs/
+├── docs/           # 可选：Track A、GitHub About 文案 — 见 docs/README.md
 ├── web/
 ├── README.md
 └── README.zh-CN.md

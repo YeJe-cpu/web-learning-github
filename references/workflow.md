@@ -1,37 +1,37 @@
-# Skill 实验室页 · 用户偏好与检查清单
+# Skill lab page — preferences & checklist
 
-## 单仓库 vs 整合页
+## Single file vs merged page
 
-- **单仓库（默认）**：新建 `web/<owner>-<repo>.html`（或用户在对话里指定的目录）。
-- **多仓库一次交付**：用户在一句话里列出 2+ 个 GitHub 仓库，或明说「合成一个 Tab 页」→ 可输出整合 HTML，或分别输出多个单文件；若无偏好，**优先多个单文件**。
+- **Single repo (default):** write `web/<owner>-<repo>.html` (or user-chosen path).
+- **Multiple repos in one request:** merged tabbed HTML **or** separate files; if no preference, **prefer separate files**.
 
-## 用户明确偏好的结构
+## Structure preferences
 
-1. **组件路径前置**：必须在「分步旅程」之前；条数按真实路径展开，避免强行固定 4 条丢分支。
-2. **分步旅程要细**：安装 / 首触 / 顺利路径 / 异常路径等可拆步。
-3. **研究者三问**（内容上要能回答）：Journey UI；交付物形态；README 热度从何而来。
+1. **Component path / journey first** — before long-form steps; don’t force a fixed message count; follow the real branching path.
+2. **Granular step journey** — install / first touch / happy path / failure paths as needed.
+3. **Research questions the page should answer:** journey UX; artifact shape; what README popularity implies.
 
-## 宿主表述
+## Host wording
 
-旅程气泡或安装说明需点名时，优先使用用户当前环境（**Cursor / Claude Code / Windsurf / OpenClaw** 等）。OpenClaw 路径与优先级参见 [OpenClaw · Skills](https://docs.openclaw.ai/skills/)。
+Name the host the user actually uses (**Cursor / Claude Code / Windsurf / OpenClaw**). OpenClaw resolution order: [OpenClaw · Skills](https://docs.openclaw.ai/skills/).
 
-## 数据
+## Data
 
-- Star/Fork/创建时间以 GitHub API 为准；页脚注明「快照」时间。
-- 无 API 时写「以仓库页为准」并给链接。
+- Stars/forks/created_at from GitHub API when possible; footer **snapshot** time.
+- Without API: “see repo page” + link.
 
-## 不要做
+## Do not
 
-- 不要把组件路径放到页面最底部。
+- Push the component-path block to the bottom of the page.
 
-## 版心与配色
+## Layout & palette
 
-- 默认 **Lab·Canonical**，见 `ui-tokens.md`。
-- 变体 A/B 仅用户要换气质或盲盒时使用。
+- Default **Lab·Canonical** in `ui-tokens.md`.
+- Variants A/B only when the user wants a different tone or a one-off “wildcard”.
 
-## 检查清单（生成后目测）
+## Post-gen sanity check
 
-- [ ] 主标题不是 Inter / Roboto 堆栈
-- [ ] 背景无大紫渐变主导、无重噪点磨砂铺满
-- [ ] 版心留白适中（`ui-tokens.md` 中的 `.shell` 公式）
-- [ ] `typing-avatar` id 与 `chat-window` id 一致
+- [ ] Display font for main title is not Inter / Roboto
+- [ ] No huge purple-gradient hero; no heavy noise texture across the whole page
+- [ ] Comfortable margins (`.shell` in `ui-tokens.md`)
+- [ ] `typing-avatar` id matches `chat-window` id rule

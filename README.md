@@ -10,6 +10,12 @@ Point it at a skills repo. Get back a **lab you can double-click**—**scroll-fr
 
 ---
 
+## What’s on GitHub
+
+This repository contains **only** the publishable skill folder (**codebase-to-web** — same skill previously iterated as `oss-skill-lab-html`). It does **not** include your broader workspace, private notes, or unrelated “材料” trees—only what lives in this repo root is what gets cloned from GitHub. See [docs/README.md](docs/README.md) for what the small `docs/` extras are.
+
+---
+
 ## Who is this for?
 
 **“Skill hoarders who still have a job to do”—** you already use **Cursor**, **Claude Code**, **Windsurf**, **OpenClaw**, or similar. You **star skill repos** (or vendor `anthropics/skills`, community packs, in-house `SKILL.md` trees). They work. But you don’t yet have a **single map** of **install → trigger → which file fires → what the README implies**.
@@ -48,16 +54,25 @@ Copy the **`codebase-to-web`** folder (this repo) into the skill location your *
 | **Windsurf** | per current Windsurf / Cascade docs (project-level skills path) |
 | **OpenClaw** | e.g. `~/.openclaw/skills/`, `~/.agents/skills/`, or workspace `skills/` — see [OpenClaw · Skills](https://docs.openclaw.ai/skills/) for load order |
 
-Keep this layout:
+Keep this layout (English references are default; Chinese mirrors end with `.zh-CN.md`):
 
 ```
 codebase-to-web/
-├── SKILL.md
-└── references/
-    ├── workflow.md
-    ├── ui-tokens.md
-    └── frontend-design-notes.md
+├── SKILL.md                 # canonical for most hosts
+├── SKILL.zh-CN.md           # Chinese skill copy (optional; merge if your host reads one file)
+├── references/
+│   ├── workflow.md
+│   ├── workflow.zh-CN.md
+│   ├── ui-tokens.md
+│   ├── ui-tokens.zh-CN.md
+│   ├── frontend-design-notes.md
+│   └── frontend-design-notes.zh-CN.md
+├── web/                     # default HTML output (ignored by git)
+├── README.md
+└── README.zh-CN.md
 ```
+
+**Page language:** English prompt → English lab page; 中文 → 中文页面 (see `SKILL.md`).
 
 Then in chat: *“Turn `owner/repo` into a Skill Lab HTML page.”*
 
@@ -101,9 +116,10 @@ Filename **`owner-repo.html`**; **no build** = reproducible output.
 ```
 codebase-to-web/
 ├── SKILL.md
+├── SKILL.zh-CN.md
 ├── references/
-├── docs/              # optional Track A, About copy, launch checklist
-├── web/               # default output (gitignored *.html)
+├── docs/              # optional: Track A readmes, GitHub About helper — see docs/README.md
+├── web/
 ├── README.md
 └── README.zh-CN.md
 ```

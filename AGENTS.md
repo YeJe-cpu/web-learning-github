@@ -1,9 +1,9 @@
 # AGENTS
 
-This repo is an **Agent Skill** bundle: read `SKILL.md` and `references/*.md` when generating Skill Lab HTML pages.
+Publishable **Agent Skill** bundle (formerly worked on as `oss-skill-lab-html`; repo name **codebase-to-web**).
 
-- **Skill name (YAML):** `codebase-to-web`
-- **Default output directory:** `web/` (see `SKILL.md`)
-- **Hosts:** Cursor, Claude Code, Windsurf, OpenClaw — install paths differ; see `SKILL.md` table and [OpenClaw · Skills](https://docs.openclaw.ai/skills/)
-- Optional README Track A: `docs/README-track-a.md`
-- Launch: `docs/LAUNCH-CHECKLIST.md` · GitHub About: `docs/GITHUB-ABOUT.md`
+- **Canonical English skill:** `SKILL.md` + `references/*.md` (no `.zh-CN` suffix).
+- **Chinese mirror:** `SKILL.zh-CN.md` + `references/*.zh-CN.md` (same behavior; page language still follows the user—see `SKILL.md`).
+- **Default output:** `web/` (see `SKILL.md`).
+- **Hosts:** Cursor, Claude Code, Windsurf, OpenClaw — paths in `SKILL.md` / `SKILL.zh-CN.md`.
+- **Optional README variants:** `docs/README-track-a*.md` (not loaded by hosts automatically).

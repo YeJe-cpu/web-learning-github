@@ -1,53 +1,61 @@
 ---
 name: codebase-to-web
-description: "Agent skill: GitHub OSS Agent Skill repo → self-contained single-file Chinese Skill Lab HTML (meta, journey chat, user vs behind-the-scenes, tree, README bullets). Default output web/<owner>-<repo>.html. Host-agnostic: Cursor, Claude Code, Windsurf, OpenClaw. Lab·Canonical visuals + frontend-design discipline; optional cool/teal variants. Triggers: repo URL, 生成 Skill 实验室页, skill lab HTML."
+description: "Agent skill: GitHub Agent Skill repo → self-contained single-file HTML lab page (meta, journey chat, user vs behind-the-scenes, tree, README bullets). Default web/<owner>-<repo>.html. Hosts: Cursor, Claude Code, Windsurf, OpenClaw. Match page language to the user. Lab·Canonical visuals + frontend-design discipline."
 ---
 
-# OSS Agent Skill → 单页「实验室」HTML（Codebase to Web）
+# Agent Skill repo → single-file HTML lab (Codebase to Web)
 
-## 目标
+## Goal
 
-交付**本地可双击打开**的单文件 HTML，帮助读者理解「装完 / 触发之后谁在对谁做什么」，并对照 Star/Fork 与目录结构。
+Deliver a **double-clickable** single HTML file that explains **who talks to whom after install/trigger**, with Star/Fork and repo layout context.
 
-## 落盘规则（重要）
+## Output language (required)
 
-- **默认**：一个仓库 → **一个独立 HTML** → **`web/<owner>-<repo>.html`**（或用户在对话里指定的目录）。保持一仓一文件。
-- **多仓库**：用户在同一条需求里给出 2+ 个仓库，或要求「整合成 Tab 页」时，可输出单一整合 HTML；无偏好时 **优先多个单文件**。
-- 不要把实验室页散落在与项目无关的路径根目录；与用户约定统一输出目录（本 skill 默认识别 **`web/`**）。
+- If the user writes mainly in **English**, generate the **entire lab page in English** (headings, blurbs, journey copy, step labels, bullets, footer).
+- If the user writes mainly in **Chinese (中文)**, generate the **entire page in 中文**.
+- Mixed prompts: follow the **dominant** language; if unclear, **default to English** for this OSS bundle unless the user asks for 中文.
 
-## 宿主与安装路径（生成说明文 / journey 时可引用）
+## File output rules
 
-撰写「如何安装本 skill」或对话 journey 里点名宿主时，按用户真实环境选用；常见对应关系（随各产品更新以官方文档为准）：
+- **Default:** one repo → one file → **`web/<owner>-<repo>.html`** (or a directory the user specifies).
+- **Multiple repos** in one request, or explicit “single tabbed page”: you may emit one combined HTML; if no preference, **prefer separate files**.
+- Keep outputs under an agreed folder; **default `web/`**.
 
-| 宿主 | 典型 skill 目录（示例） |
-|------|-------------------------|
-| **Cursor** | 项目内 `.agents/skills/<skill-folder>/`（或团队约定路径） |
+## Hosts (for journey/install copy)
+
+When naming the host in journey bubbles or install steps, follow the user’s real environment. Examples (always verify against vendor docs):
+
+| Host | Typical skill path (examples) |
+|------|-------------------------------|
+| **Cursor** | Project `.agents/skills/<skill-folder>/` (or team convention) |
 | **Claude Code** | `~/.claude/skills/<skill-folder>/` |
-| **Windsurf** | 以 Windsurf / Cascade 当前文档为准（常为项目级 skills 配置） |
-| **OpenClaw** | 如 `~/.openclaw/skills/`、用户级 `~/.agents/skills/`、或工作区 `skills/` 等；**优先级与加载规则**见官方文档：[OpenClaw · Skills](https://docs.openclaw.ai/skills/) |
+| **Windsurf** | Per current Windsurf / Cascade docs (often project-level skills) |
+| **OpenClaw** | e.g. `~/.openclaw/skills/`, `~/.agents/skills/`, or workspace `skills/` — load order: [OpenClaw · Skills](https://docs.openclaw.ai/skills/) |
 
-若用户未指定宿主，正文可用泛称 **「宿主 / Agent IDE」**，避免写死单一品牌。
+If unknown, say **“host / agent IDE”** instead of a single brand.
 
-## 固定版式顺序
+## Section order
 
-1. **GitHub 元数据条**：链接、`stargazers_count`、`forks_count`、`created_at`（UTC）。
-2. **大白话**（`plain`）：零术语场景句。
-3. **交付物 blurb**：Markdown / Hook / 脚本等形态。
-4. **组件路径（必须在分步旅程之前）**：可播放的对话 journey；`data-sender` 区分角色；条数按真实路径展开（复杂项目 6–15 条 journey map）。**可**在气泡中体现「用户在 Cursor / Claude Code / OpenClaw 中触发技能」等路径，与上表一致。
-5. **分步旅程**：每步「表面上」/「背后」。
-6. **仓库骨架**：`pre.tree`。
-7. **README 简析**：需求 / 传播 / 壁垒 / 合规，各 1 bullet。
+1. **GitHub meta bar** — link, `stargazers_count`, `forks_count`, `created_at` (UTC).
+2. **Plain blurb** — jargon-free scenario sentence.
+3. **Deliverable blurb** — Markdown vs hooks vs scripts, etc.
+4. **Component path / journey (before long steps)** — playable chat; `data-sender` roles; length follows real paths (often 6–15 beats for complex repos). May mention Cursor / Claude Code / OpenClaw per table.
+5. **Step journey** — per step “on the surface” / “behind the scenes”.
+6. **Repo tree** — `pre.tree` monospace.
+7. **README bullets** — demand / distribution / moat / compliance, one each.
 
-## 视觉
+## Visuals
 
-读 `references/ui-tokens.md`（Lab·Canonical 默认）与 `references/frontend-design-notes.md`（与 Anthropic `frontend-design` 纪律对齐，非运行时依赖）。变体 A/B 仅用户明确要求或「盲盒」时使用。
+Read `references/ui-tokens.md` (Lab·Canonical default) and `references/frontend-design-notes.md`. Variants A/B only when the user asks or wants a “wildcard” look.
 
-## Chat 脚本
+## Chat widget
 
-每个 `.chat-window`：`typing-avatar` 的 id 为 `{chatWindowId}-typing-avatar`；消息初始 `display:none`，进度按 `.chat-message` 数量自动计算。
+Per `.chat-window`: `typing-avatar` id = `{chatWindowId}-typing-avatar`; messages start `display:none`; progress from `.chat-message` count.
 
-## 扩展阅读
+## More
 
 - `references/workflow.md`
 - `references/ui-tokens.md`
 - `references/frontend-design-notes.md`
+
+**Chinese skill text & references:** `SKILL.zh-CN.md`, `references/*.zh-CN.md`.

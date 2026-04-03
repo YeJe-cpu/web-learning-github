@@ -1,12 +1,12 @@
-# Skill 实验室页 · 视觉 token（自持）
+# Skill lab page · visual tokens (self-contained)
 
-对齐 **frontend-design** 纪律：有主见的字体与配色、意图明确的留白（见 `frontend-design-notes.md`）。
+Follow **frontend-design** discipline: intentional type and color, purposeful whitespace (see `frontend-design-notes.md`).
 
 ---
 
-## Lab·Canonical（默认 · Developer-Marketing 暖编辑风）
+## Lab·Canonical (default · warm editorial typography)
 
-**Fraunces + Source Sans 3**、陶土强调色、暖灰纸感。新产出 **优先** 使用本组。
+**Fraunces + Source Sans 3**, terracotta accent, warm paper gray. **Prefer** this set for new pages.
 
 ### Google Fonts
 
@@ -14,12 +14,12 @@
 https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,500&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap
 ```
 
-### :root（摘要）
+### :root (summary)
 
-- `--page-bg: #e8e2d8`；`--surface: #fffdf8`；`--accent: #9c4221`；`--accent-light: #ffedd5`；`--code-bg: #25201c`
-- 完整变量与说明以生成时读本文为准。
+- `--page-bg: #e8e2d8`; `--surface: #fffdf8`; `--accent: #9c4221`; `--accent-light: #ffedd5`; `--code-bg: #25201c`
+- Use this file as the source of truth for full variables when generating.
 
-### 版心 · 页边距（中间值）
+### Shell width · gutters (mid values)
 
 ```css
 .shell {
@@ -29,24 +29,24 @@ https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,
 }
 ```
 
-副标题 `max-width: 44rem`；`footer.note` 可 `max-width: 52rem`。
+Subheads `max-width: 44rem`; `footer.note` may use `max-width: 52rem`.
 
 ---
 
 ## Lab·Variant A · Cool Studio
 
-- **Outfit + Newsreader**；`--accent: #0369a1`；浅灰蓝气质。用户点「冷色 / SaaS」或盲盒时使用。
+- **Outfit + Newsreader**; `--accent: #0369a1`; cool gray-blue. Use when the user asks for “cold / SaaS” or a wildcard.
 
 ## Lab·Variant B · Technical
 
-- **Sora + IBM Plex Serif**；`--accent: #0f766e`；可选 `.warn` 合规条。用户点「工程 / 架构页」或盲盒时使用。
+- **Sora + IBM Plex Serif**; `--accent: #0f766e`; optional `.warn` compliance strip. Use for “engineering / architecture” tone or wildcard.
 
-### 盲盒比例
+### Wildcard ratio
 
-- **默认**：Canonical。同一批多仓任务中变体 **至多一张**。
+- **Default:** Canonical. In a batch, **at most one** variant page.
 
 ---
 
-## 禁止
+## Avoid
 
-主标题不要用 Inter / Roboto / Arial；不要大紫渐变铺满背景；实验室页不要重噪点磨砂大底。
+No Inter / Roboto / Arial for the main headline; no huge purple-gradient hero; no heavy noise texture as the entire background.
