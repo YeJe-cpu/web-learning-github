@@ -6,7 +6,7 @@
 
 ## `workflow.md` / `workflow.zh-CN.md`
 
-**流程与检查清单**：默认一仓一单文件还是多仓合并、**fd-pass 壳**（双列分步、聊天 Next/全部播放/重播）、journey 要放在前面、`web/` 与可选 **`30_resources/oss-skill-lab/`** 落盘约定、生成完自检什么。  
+**流程与检查清单**：默认一仓一单文件还是多仓合并、**fd-pass 壳**（双列分步、聊天 Next/全部播放/重播）、journey **条数随仓库**（勿写死条数）、journey 要放在前面、`web/` 与可选 **`30_resources/oss-skill-lab/`**（Cursor 本机可写死实验室路径）、**单语默认 / README 演示再双语**、配色可在纪律内盲盒微调、生成完自检什么。  
 → 模型按这个来，**网页结构不会乱**。
 
 ## `ui-tokens.md` / `ui-tokens.zh-CN.md`

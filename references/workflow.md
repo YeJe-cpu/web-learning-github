@@ -8,7 +8,7 @@
 
 ## Structure preferences
 
-1. **Component path / journey first** — before long-form steps; don’t force a fixed message count; follow the real branching path.
+1. **Component path / journey first** — before long-form steps; **never assume a fixed number of chat bubbles** (e.g. not “always 6”); follow the real repo—fewer for simple layouts, more for complex ones.
 2. **Granular step journey** — install / first touch / happy path / failure paths as needed.
 3. **Research questions the page should answer:** journey UX; artifact shape; what README popularity implies.
 
