@@ -12,11 +12,17 @@ An **agent skill** for **Cursor, Claude Code, Windsurf, OpenClaw**, and similar 
 
 ## Demo & what’s inside the page
 
-Three captures below show the **English** UI of this repo’s sample [`web/YeJe-cpu-web-learning-github.html`](web/YeJe-cpu-web-learning-github.html) (open locally after clone). **Images first, text after.** Toggle **English / 中文** at the top; the component path has **Next · Play all · Reset** (fd-pass layout).
+The **English** UI of this repo’s sample page [`web/YeJe-cpu-web-learning-github.html`](web/YeJe-cpu-web-learning-github.html) (open locally after clone). **English / 中文** toggle at the top; component path: **Next · Play all · Reset** (fd-pass layout). Same pattern as READMEs that lead with visuals—**one image per beat**, then the feature list below.
+
+**Hero, hints, repo meta, plain-language + deliverables**
 
 ![Overview — hero, meta, plain-language intro, deliverables (English)](assets/demo-en-hero.png)
 
+**Component-path bubbles + two-column step journey**
+
 ![Component path bubbles and two-column step journey (English)](assets/demo-en-path-steps.png)
+
+**Playback controls (GIF)**
 
 ![Playback — Next, Play all, Reset (English, GIF)](assets/demo-en-interaction.gif)
 

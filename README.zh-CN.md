@@ -12,11 +12,17 @@ English：[README.md](README.md) · 仓库：[YeJe-cpu/web-learning-github](http
 
 ## 演示 & 生成的页面里有什么
 
-下面三张图是 **本仓库** 示例页 [`web/YeJe-cpu-web-learning-github.html`](web/YeJe-cpu-web-learning-github.html) 的 **中文** 界面（克隆后本地双击打开即可）。**先看图，再看文字。** 页顶可 **English / 中文** 切换；组件路径区有 **下一条 · 全部播放 · 重播**（fd-pass 版式）。
+下列截图为 **本仓库** 示例 [`web/YeJe-cpu-web-learning-github.html`](web/YeJe-cpu-web-learning-github.html) 的 **中文** 界面（克隆后本地打开）。与 [codebase-to-course](https://github.com/zarazhangrui/codebase-to-course) 一类 README 相同：**一段说明 + 一张图**，逐屏展示。页顶 **English / 中文**；组件路径 **下一条 · 全部播放 · 重播**（fd-pass）。
+
+**总览 — 提示卡、仓库信息、大白话与交付物**
 
 ![总览 — 标题区、用法提示、仓库信息、大白话与交付物（中文）](assets/demo-zh-hero.png)
 
+**组件路径交互（GIF）**
+
 ![组件路径交互 — 下一条 / 全部播放 / 重播（中文，GIF）](assets/demo-zh-interaction.gif)
+
+**分步旅程双列 + 目录树**
 
 ![分步旅程双列与目录树片段（中文）](assets/demo-zh-steps-tree.png)
 
