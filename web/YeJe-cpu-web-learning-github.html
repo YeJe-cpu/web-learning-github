@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en" class="is-en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>YeJe-cpu/web-learning-github — skill walkthrough</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,500&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --page-bg: #e8e2d8;
+      --surface: #fffdf8;
+      --accent: #9c4221;
+      --accent-light: #ffedd5;
+      --code-bg: #25201c;
+      --text: #1c1917;
+      --muted: #57534e;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Source Sans 3", system-ui, sans-serif;
+      background: var(--page-bg);
+      color: var(--text);
+      line-height: 1.55;
+    }
+    .shell {
+      max-width: min(52rem, calc(100vw - 2.5rem));
+      margin: 0 auto;
+      padding: clamp(2.5rem, 6vw, 4rem) clamp(1.35rem, 4vw, 2.25rem) clamp(4rem, 8vw, 5.5rem);
+    }
+    header.top {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 1.75rem;
+    }
+    .title-block h1 {
+      font-family: Fraunces, Georgia, serif;
+      font-size: clamp(1.45rem, 4vw, 2rem);
+      font-weight: 700;
+      margin: 0 0 0.35rem;
+      color: var(--accent);
+    }
+    .title-block .sub {
+      margin: 0;
+      font-size: 0.95rem;
+      color: var(--muted);
+      max-width: 44rem;
+    }
+    .lang-switch {
+      display: flex;
+      gap: 0;
+      background: var(--surface);
+      padding: 0.2rem;
+      border-radius: 10px;
+      box-shadow: 0 1px 4px rgba(0,0,0,.07);
+      flex-shrink: 0;
+    }
+    .lang-switch button {
+      border: none;
+      background: transparent;
+      padding: 0.45rem 0.85rem;
+      font-family: inherit;
+      font-size: 0.88rem;
+      cursor: pointer;
+      border-radius: 8px;
+      color: var(--muted);
+    }
+    .lang-switch button[aria-pressed="true"] {
+      background: var(--accent-light);
+      color: var(--accent);
+      font-weight: 600;
+    }
+    .panel {
+      background: var(--surface);
+      border-radius: 12px;
+      padding: 1.25rem 1.4rem;
+      margin-bottom: 1.35rem;
+      box-shadow: 0 2px 14px rgba(28,25,23,.06);
+    }
+    .panel h2 {
+      font-family: Fraunces, serif;
+      font-size: 1.2rem;
+      margin: 0 0 0.75rem;
+      color: var(--accent);
+      max-width: 44rem;
+    }
+    .meta-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem 1.5rem;
+      font-size: 0.92rem;
+      color: var(--muted);
+      align-items: baseline;
+    }
+    .meta-bar a { color: var(--accent); font-weight: 600; }
+    .meta-bar strong { color: var(--text); }
+    .i18n-block { display: none; }
+    html.is-en .i18n-block.i18n-en { display: block; }
+    html.is-zh .i18n-block.i18n-zh { display: block; }
+    .chat-window {
+      background: #fafaf9;
+      border-radius: 12px;
+      padding: 1rem 1.1rem;
+      border: 1px solid #e7e5e4;
+    }
+    .chat-controls {
+      margin-bottom: 0.75rem;
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .chat-controls button {
+      font-family: inherit;
+      font-size: 0.88rem;
+      padding: 0.4rem 0.9rem;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      background: var(--accent);
+      color: #fff;
+      font-weight: 600;
+    }
+    .chat-controls button.secondary {
+      background: #e7e5e4;
+      color: var(--text);
+    }
+    .chat-message {
+      margin: 0.55rem 0;
+      padding: 0.65rem 0.95rem;
+      border-radius: 10px;
+      max-width: 94%;
+      display: none;
+    }
+    .chat-message[data-sender="user"] {
+      background: var(--accent-light);
+      border-left: 4px solid var(--accent);
+    }
+    .chat-message[data-sender="host"],
+    .chat-message[data-sender="model"] {
+      background: #f5f5f4;
+      margin-left: 1rem;
+      border-right: 4px solid #78716c;
+    }
+    .chat-message .who {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: .07em;
+      color: var(--muted);
+      margin-bottom: 0.25rem;
+    }
+    .chat-message .i18n-en, .chat-message .i18n-zh { display: none; }
+    html.is-en .chat-message .i18n-en { display: block; }
+    html.is-zh .chat-message .i18n-zh { display: block; }
+    #wlgh-journey-typing-avatar {
+      display: none;
+      margin: 0.35rem 0 0.35rem 1rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+    #wlgh-journey-typing-avatar.is-visible { display: flex; align-items: center; gap: 0.35rem; }
+    .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--muted);
+      animation: bounce 1.2s infinite ease-in-out both;
+    }
+    .dot:nth-child(2) { animation-delay: 0.15s; }
+    .dot:nth-child(3) { animation-delay: 0.3s; }
+    @keyframes bounce {
+      0%, 80%, 100% { transform: scale(0.75); opacity: 0.5; }
+      40% { transform: scale(1); opacity: 1; }
+    }
+    .step { margin: 1rem 0; }
+    .step h3 { font-family: Fraunces, serif; font-size: 1.05rem; margin: 0 0 0.45rem; }
+    .surface, .backstage {
+      padding: 0.72rem 0.95rem;
+      border-radius: 8px;
+      margin: 0.4rem 0;
+      font-size: 0.96rem;
+    }
+    .surface { background: #fef3c7; border-left: 3px solid #d97706; }
+    .backstage { background: #e0e7ff; border-left: 3px solid #4f46e5; }
+    pre.tree {
+      background: var(--code-bg);
+      color: #e7e5e4;
+      padding: 1rem;
+      border-radius: 8px;
+      overflow-x: auto;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.8rem;
+      line-height: 1.45;
+      margin: 0.5rem 0 0;
+    }
+    ul.readme { margin: 0.4rem 0 0; padding-left: 1.15rem; font-size: 0.95rem; max-width: 44rem; }
+    footer.note { margin-top: 2rem; font-size: 0.82rem; color: var(--muted); max-width: 52rem; }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header class="top">
+      <div class="title-block">
+        <h1>YeJe-cpu/web-learning-github</h1>
+        <p class="sub i18n-block i18n-en">Web Learning GitHub — Agent Skill repo rendered as one scrollable HTML: who does what after install and trigger (learning orientation, not a ship scaffold).</p>
+        <p class="sub i18n-block i18n-zh">Web Learning GitHub — 将 Agent Skill 仓库收成单页 HTML：安装与触发之后谁调用谁（偏于学习与摸底，不是上线脚手架）。</p>
+      </div>
+      <div class="lang-switch" role="group" aria-label="Language">
+        <button type="button" id="btn-en" aria-pressed="true">English</button>
+        <button type="button" id="btn-zh" aria-pressed="false">中文</button>
+      </div>
+    </header>
+
+    <section class="panel" aria-label="GitHub meta">
+      <h2 class="i18n-block i18n-en">GitHub meta</h2>
+      <h2 class="i18n-block i18n-zh">GitHub 信息</h2>
+      <div class="meta-bar">
+        <a href="https://github.com/YeJe-cpu/web-learning-github">github.com/YeJe-cpu/web-learning-github</a>
+        <span><strong>Stars</strong> · 0</span>
+        <span><strong>Forks</strong> · 0</span>
+        <span><strong>Created (UTC)</strong> · 2026-04-03T07:27:25Z</span>
+      </div>
+      <p class="i18n-block i18n-en" style="margin:0.75rem 0 0;font-size:0.9rem;color:var(--muted)">Stats from GitHub API when this page was generated. Refresh by regenerating the file.</p>
+      <p class="i18n-block i18n-zh" style="margin:0.75rem 0 0;font-size:0.9rem;color:var(--muted)">Star 等数据来自生成此页时的 GitHub API；更新请重新生成 HTML。</p>
+    </section>
+
+    <section class="panel">
+      <h2 class="i18n-block i18n-en">What you get</h2>
+      <h2 class="i18n-block i18n-zh">产出是什么</h2>
+      <p class="i18n-block i18n-en" style="margin:0;max-width:44rem">One self-contained HTML (no bundler): meta bar, short blurbs, a <strong>component path</strong> you can play like chat, then <strong>surface vs backstage</strong> steps, repo tree, and README-flavoured bullets—default path <code>web/&lt;owner&gt;-&lt;repo&gt;.html</code>.</p>
+      <p class="i18n-block i18n-zh" style="margin:0;max-width:44rem">单个自包含 HTML（无打包）：元信息栏、短文说明、可像聊天一样播放的<strong>组件路径</strong>、<strong>表面上 / 背后</strong> 分步、目录树、以及类似 README 的要点——默认文件名 <code>web/&lt;owner&gt;-&lt;repo&gt;.html</code>。</p>
+    </section>
+
+    <section class="panel">
+      <h2 class="i18n-block i18n-en">Component path (play)</h2>
+      <h2 class="i18n-block i18n-zh">组件路径（播放）</h2>
+      <p class="i18n-block i18n-en" style="margin:0 0 1rem;font-size:0.92rem;color:var(--muted)">Happy path for this repository, as if you asked the skill to map <strong>YeJe-cpu/web-learning-github</strong>.</p>
+      <p class="i18n-block i18n-zh" style="margin:0 0 1rem;font-size:0.92rem;color:var(--muted)">本仓库的 happy path：假设你在对话里让 skill 解析 <strong>YeJe-cpu/web-learning-github</strong>。</p>
+
+      <div class="chat-window" id="wlgh-journey">
+        <div class="chat-controls">
+          <button type="button" id="journey-play" class="i18n-block i18n-en">Play</button>
+          <button type="button" id="journey-play-zh" class="i18n-block i18n-zh">播放</button>
+          <button type="button" id="journey-reset" class="secondary i18n-block i18n-en">Reset</button>
+          <button type="button" id="journey-reset-zh" class="secondary i18n-block i18n-zh">重播</button>
+        </div>
+        <div id="wlgh-journey-typing-avatar" aria-hidden="true">
+          <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+          <span class="i18n-block i18n-en" style="display:inline">Typing…</span>
+          <span class="i18n-block i18n-zh" style="display:inline">输入中…</span>
+        </div>
+
+        <div class="chat-message" data-sender="user">
+          <div class="who"><span class="i18n-en">You</span><span class="i18n-zh">你</span></div>
+          <div class="i18n-en">I copied <code>web-learning-github</code> into <code>.agents/skills/</code>. Turn <strong>YeJe-cpu/web-learning-github</strong> into one bilingual HTML with EN / 中文 toggle—I need a screenshot for the README demo section.</div>
+          <div class="i18n-zh">我已把 <code>web-learning-github</code> 放到 <code>.agents/skills/</code>。请把 <strong>YeJe-cpu/web-learning-github</strong> 做成带 **英 / 中** 切换的单页 HTML——我要截屏放进 README 的 Demo 区块。</div>
+        </div>
+        <div class="chat-message" data-sender="host">
+          <div class="who">Cursor</div>
+          <div class="i18n-en">Loads <code>SKILL.md</code> → section order, optional bilingual toggle, Lab·Canonical tokens in <code>references/ui-tokens.md</code>.</div>
+          <div class="i18n-zh">加载 <code>SKILL.md</code> → 章节顺序、可选中英切换、在 <code>references/ui-tokens.md</code> 中取 Lab·Canonical 版式。</div>
+        </div>
+        <div class="chat-message" data-sender="model">
+          <div class="who"><span class="i18n-en">Model</span><span class="i18n-zh">模型</span></div>
+          <div class="i18n-en">Reads <code>references/workflow.md</code> (path first, don’t bury journey), <code>references/frontend-design-notes.md</code>, then fetches <code>GET /repos/YeJe-cpu/web-learning-github</code> for stars / forks / <code>created_at</code>.</div>
+          <div class="i18n-zh">阅读 <code>references/workflow.md</code>（路径优先）、<code>references/frontend-design-notes.md</code>，再请求 <code>GET /repos/YeJe-cpu/web-learning-github</code> 取 star / fork / 创建时间。</div>
+        </div>
+        <div class="chat-message" data-sender="model">
+          <div class="who"><span class="i18n-en">Model</span><span class="i18n-zh">模型</span></div>
+          <div class="i18n-en">Builds the step-through bubbles (this widget: <code>#wlgh-journey</code> + <code>#wlgh-journey-typing-avatar</code>), then surface/backstage, tree from disk layout, README bullets.</div>
+          <div class="i18n-zh">拼装逐步气泡（本控件：<code>#wlgh-journey</code> 与 <code>#wlgh-journey-typing-avatar</code>），再写表面/背后、目录树与 README 式要点。</div>
+        </div>
+        <div class="chat-message" data-sender="user">
+          <div class="who"><span class="i18n-en">You</span><span class="i18n-zh">你</span></div>
+          <div class="i18n-en">Open <code>web/YeJe-cpu-web-learning-github.html</code> locally, toggle language, capture a screenshot → paste into <code>README.md</code> / <code>assets/</code>.</div>
+          <div class="i18n-zh">本地打开 <code>web/YeJe-cpu-web-learning-github.html</code>，切换语言后截屏 → 粘贴到 <code>README.md</code> 或 <code>assets/</code>。</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2 class="i18n-block i18n-en">Steps — surface vs backstage</h2>
+      <h2 class="i18n-block i18n-zh">分步 — 表面上 / 背后</h2>
+
+      <div class="i18n-block i18n-en">
+        <div class="step">
+          <h3>1. Install the skill folder</h3>
+          <div class="surface"><strong>Surface</strong> — You drop <code>web-learning-github/</code> into the host’s skills directory (e.g. Cursor <code>.agents/skills/web-learning-github/</code>).</div>
+          <div class="backstage"><strong>Backstage</strong> — The host indexes <code>SKILL.md</code>; <code>references/*</code> stay on disk until a generation task runs.</div>
+        </div>
+        <div class="step">
+          <h3>2. Trigger with owner/repo + language prefs</h3>
+          <div class="surface"><strong>Surface</strong> — Natural language: map repo, bilingual toggle, default output under <code>web/</code>.</div>
+          <div class="backstage"><strong>Backstage</strong> — Model follows SKILL ordering: meta → blurbs → journey → steps → tree → bullets; chat messages start hidden and reveal on Play.</div>
+        </div>
+        <div class="step">
+          <h3>3. Ship or archive the HTML</h3>
+          <div class="surface"><strong>Surface</strong> — Double-click the file, scroll, screenshot, or attach to docs.</div>
+          <div class="backstage"><strong>Backstage</strong> — No runtime server required; fonts may load once from Google Fonts then cache offline.</div>
+        </div>
+      </div>
+
+      <div class="i18n-block i18n-zh">
+        <div class="step">
+          <h3>1. 安装 skill 目录</h3>
+          <div class="surface"><strong>表面上</strong> — 将 <code>web-learning-github/</code> 放进宿主约定的 skills 路径（如 Cursor 的 <code>.agents/skills/web-learning-github/</code>）。</div>
+          <div class="backstage"><strong>背后</strong> — 宿主识别 <code>SKILL.md</code>；<code>references/*</code> 在真正生成 HTML 时才会被读到。</div>
+        </div>
+        <div class="step">
+          <h3>2. 用自然语言触发</h3>
+          <div class="surface"><strong>表面上</strong> — 说明目标 <code>owner/repo</code>、是否要中英切换、产出是否放在 <code>web/</code>。</div>
+          <div class="backstage"><strong>背后</strong> — 模型按 SKILL 顺序：元信息 → 短文 → 路径 → 分步 → 树 → 要点；聊天气泡初始隐藏，点「播放」再逐步出现。</div>
+        </div>
+        <div class="step">
+          <h3>3. 使用或归档 HTML</h3>
+          <div class="surface"><strong>表面上</strong> — 双击打开、滚动、截屏或贴进文档。</div>
+          <div class="backstage"><strong>背后</strong> — 无需服务端；首次可从 Google Fonts 拉字库，之后可离线依赖缓存。</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2 class="i18n-block i18n-en">Repository tree</h2>
+      <h2 class="i18n-block i18n-zh">仓库目录</h2>
+      <pre class="tree">web-learning-github/
+├── SKILL.md
+├── SKILL.zh-CN.md
+├── references/
+│   ├── README.md
+│   ├── workflow.md
+│   ├── workflow.zh-CN.md
+│   ├── ui-tokens.md
+│   ├── ui-tokens.zh-CN.md
+│   ├── frontend-design-notes.md
+│   └── frontend-design-notes.zh-CN.md
+├── web/
+│   ├── demo.html
+│   └── YeJe-cpu-web-learning-github.html   ← this walkthrough
+├── assets/
+├── skill-lab/
+├── README.md
+├── README.zh-CN.md
+├── AGENTS.md
+├── CONTRIBUTING.md
+└── LICENSE</pre>
+    </section>
+
+    <section class="panel">
+      <h2 class="i18n-block i18n-en">README angles</h2>
+      <h2 class="i18n-block i18n-zh">README 侧写</h2>
+      <ul class="readme i18n-block i18n-en">
+        <li><strong>Demand</strong> — Skill repos hide real entrypoints under <code>references/</code> and naming conventions; one page reduces tab fatigue.</li>
+        <li><strong>Distribution</strong> — Single-file HTML is easy to share or drop in <code>web/</code> without a build step.</li>
+        <li><strong>Caveat</strong> — GitHub counters are a snapshot at generation time.</li>
+        <li><strong>Compliance</strong> — Do not embed secrets or private URLs in generated walkthroughs.</li>
+      </ul>
+      <ul class="readme i18n-block i18n-zh">
+        <li><strong>需求</strong> — Skill 仓的真实入口常在 <code>references/</code> 与约定名之下，单页能减少来回切 Tab。</li>
+        <li><strong>传播</strong> — 单文件 HTML 易分享，放进 <code>web/</code> 也无须构建链。</li>
+        <li><strong>注意</strong> — GitHub 数字为生成时刻的快照。</li>
+        <li><strong>合规</strong> — 勿在生成页中写入密钥或内网地址。</li>
+      </ul>
+    </section>
+
+    <footer class="note">
+      <p class="i18n-block i18n-en"><strong>Snapshot</strong> · Page generated for documentation / screenshot use (2026-04-03). Toggle: <code>html.is-en</code> / <code>html.is-zh</code>; preference key <code>wlgh-walkthrough-lang</code>.</p>
+      <p class="i18n-block i18n-zh"><strong>快照</strong> · 本页用于文档说明 / 截屏（2026-04-03）。语言：<code>html.is-en</code> / <code>html.is-zh</code>；偏好键 <code>wlgh-walkthrough-lang</code>。</p>
+    </footer>
+  </div>
+
+  <script>
+    (function () {
+      var root = document.documentElement;
+      var btnEn = document.getElementById('btn-en');
+      var btnZh = document.getElementById('btn-zh');
+      function setLang(lang) {
+        var en = lang === 'en';
+        root.classList.remove('is-en', 'is-zh');
+        root.classList.add(en ? 'is-en' : 'is-zh');
+        root.lang = en ? 'en' : 'zh-CN';
+        btnEn.setAttribute('aria-pressed', en ? 'true' : 'false');
+        btnZh.setAttribute('aria-pressed', en ? 'false' : 'true');
+        try { localStorage.setItem('wlgh-walkthrough-lang', lang); } catch (e) {}
+      }
+      btnEn.addEventListener('click', function () { setLang('en'); });
+      btnZh.addEventListener('click', function () { setLang('zh'); });
+      var saved = null;
+      try { saved = localStorage.getItem('wlgh-walkthrough-lang'); } catch (e) {}
+      if (saved === 'zh') setLang('zh');
+      else setLang('en');
+
+      var win = document.getElementById('wlgh-journey');
+      var typing = document.getElementById('wlgh-journey-typing-avatar');
+      var msgs = win ? win.querySelectorAll('.chat-message') : [];
+      var idx = 0;
+      var playing = false;
+
+      function showTyping(on) {
+        if (!typing) return;
+        typing.classList.toggle('is-visible', !!on);
+      }
+
+      function resetJourney() {
+        idx = 0;
+        playing = false;
+        showTyping(false);
+        for (var i = 0; i < msgs.length; i++) msgs[i].style.display = 'none';
+      }
+
+      function stepNext() {
+        if (idx >= msgs.length) {
+          playing = false;
+          showTyping(false);
+          return;
+        }
+        var sender = msgs[idx].getAttribute('data-sender');
+        if (sender === 'host' || sender === 'model') {
+          showTyping(true);
+          setTimeout(function () {
+            showTyping(false);
+            msgs[idx].style.display = 'block';
+            idx++;
+            setTimeout(stepNext, 420);
+          }, 580);
+        } else {
+          msgs[idx].style.display = 'block';
+          idx++;
+          setTimeout(stepNext, 420);
+        }
+      }
+
+      function playJourney() {
+        if (playing) return;
+        resetJourney();
+        playing = true;
+        stepNext();
+      }
+
+      var playBtn = document.getElementById('journey-play');
+      var playBtnZh = document.getElementById('journey-play-zh');
+      var resetBtn = document.getElementById('journey-reset');
+      var resetBtnZh = document.getElementById('journey-reset-zh');
+      if (playBtn) playBtn.addEventListener('click', playJourney);
+      if (playBtnZh) playBtnZh.addEventListener('click', playJourney);
+      if (resetBtn) resetBtn.addEventListener('click', resetJourney);
+      if (resetBtnZh) resetBtnZh.addEventListener('click', resetJourney);
+
+      resetJourney();
+    })();
+  </script>
+</body>
+</html>

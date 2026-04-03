@@ -1,6 +1,7 @@
 # Generated HTML (skill output); keep checked-in demo
 web/*.html
 !web/demo.html
+!web/YeJe-cpu-web-learning-github.html
 
 # OS
 .DS_Store
