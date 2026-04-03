@@ -25,7 +25,7 @@
 
 ## GitHub 上到底是什么
 
-只有上述 skill 包 + 双 README + `LICENSE` + 很小的 [`docs/`](docs/README.md)（给仓库 About 栏复制用）。**没有**上传你整个 `emo专用` 工作区。
+只有上述 skill 包 + 双 README + `LICENSE`。**没有**上传你整个 `emo专用` 工作区。
 
 ---
 
@@ -87,7 +87,6 @@ codebase-to-web/
 ├── SKILL.md
 ├── SKILL.zh-CN.md
 ├── references/
-├── docs/           # 可选：GitHub About 文案 — 见 docs/README.md
 ├── web/
 ├── README.md
 └── README.zh-CN.md

@@ -25,7 +25,7 @@ There is **no** separate “Skill Lab” source folder name on disk—the old wo
 
 ## What’s on GitHub
 
-Only the files above plus READMEs, `LICENSE`, and a tiny [`docs/`](docs/README.md) helper (GitHub “About” copy). Not your whole `emo专用` workspace.
+Only the files above plus READMEs and `LICENSE`. Not your whole `emo专用` workspace.
 
 ---
 
@@ -131,7 +131,6 @@ codebase-to-web/
 ├── SKILL.md
 ├── SKILL.zh-CN.md
 ├── references/
-├── docs/              # optional: GitHub About copy — see docs/README.md
 ├── web/
 ├── README.md
 └── README.zh-CN.md
