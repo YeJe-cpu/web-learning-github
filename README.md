@@ -42,6 +42,22 @@ Only the files above plus READMEs and `LICENSE`. Not your whole `emo专用` work
 
 ---
 
+## Inspired by Codebase to Course — and how we differ
+
+We’re inspired by **[zarazhangrui/codebase-to-course](https://github.com/zarazhangrui/codebase-to-course)** (*Codebase to Course*) — the project that turns a codebase into an interactive course. Their framing and UX quality motivated this spin-off.
+
+| | [codebase-to-course](https://github.com/zarazhangrui/codebase-to-course) | **Codebase to Web** (this skill) |
+|---|---|---|
+| **Typical target** | Application / product **codebases** | **Agent Skill** repos (`SKILL.md`, hooks, `references/`, packaging) |
+| **Experience** | Course-shaped depth (modules, checkpoints, code-centric flow) | **No mandatory course/quiz loop** — one **lab page** you scroll, skim, or hand to a teammate |
+| **Borrowed idea** | The **component path**: a **step-through journey** of *who loads whom*, in order | We **adopted that pattern**: the journey block is **first** so the call path sticks |
+| **Our main bet** | Teaching the code | **Skill-path UX**: pair **each user-facing action** with **what the host, model, and agents do underneath** (“surface” vs “behind the scenes”) |
+| **Also ships here** | — | GitHub **stars / forks / created-at** (with **snapshot** footer), **repo tree**, **README context** bullets (demand · distribution · moat · compliance cues), plain-language intro |
+
+**Complementary, not competing:** use *codebase-to-course* when you want structured learning on an app repo; use **Codebase to Web** when you need a **single HTML map** of **install → trigger → file load order** for a skills ecosystem. If our comparison mischaracterizes their latest behavior, open an issue and we’ll fix the wording.
+
+---
+
 ## What the lab looks like
 
 One **`.html`** — no bundler, no `npm install`; works offline after first font load (Google Fonts):
@@ -120,7 +136,7 @@ Filename **`owner-repo.html`**; **no build** = reproducible output.
 
 ### Pair with *Codebase to Course*
 
-[zarazhangrui/codebase-to-course](https://github.com/zarazhangrui/codebase-to-course) for **application code** depth; **Codebase to Web** for **`SKILL.md` ecosystems** (packaging, triggers, references).
+See **[Inspired by Codebase to Course](#inspired-by-codebase-to-course--and-how-we-differ)** above — same ecosystem, different job: app **depth** vs **skill** call graphs.
 
 ---
 

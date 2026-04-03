@@ -37,6 +37,22 @@
 
 ---
 
+## 启发来源：codebase-to-course，以及我们的不同
+
+本 skill 的直接启发来自 **[zarazhangrui/codebase-to-course](https://github.com/zarazhangrui/codebase-to-course)**（把代码仓变成可互动的「课程」体验）。我们非常尊重那条路线的产品与完成度。
+
+| | [codebase-to-course](https://github.com/zarazhangrui/codebase-to-course) | **Codebase to Web**（本仓库） |
+|---|---|---|
+| **典型对象** | 应用 / 产品 **业务代码仓** | **Agent Skill 包**（`SKILL.md`、Hook、`references/`、打包方式） |
+| **体验形态** | 偏 **课程**：模块、闯关、围绕代码的深度学习 | **不强制**课程问答式流程——给一张可滚动、可分享的 **实验室单页** |
+| **吸纳的能力** | 其中特别好的 **组件路径**：按时间线看清 **谁先加载谁、调用顺序** | 我们 **采纳同一思路**：HTML 里 **journey / 组件路径区块置顶**，先建立心智模型再读细节 |
+| **我们主打的点** | 教懂你这份代码 | **Skill 路径的 UI/UX**：让用户在**每一步界面操作**旁边，看到 **背后宿主、模型、Agent 各自在干什么**（「表面上 / 背后」对照） |
+| **这里还带什么** | — | GitHub **Star / Fork / 创建时间**（页脚 **快照**）、**仓库目录树**、**README 侧写**（需求感 · 传播 · 壁垒 · 合规注意等简短 bullet）、**大白话**引言 |
+
+**关系是互补，不是擂台：** 你要对**应用代码**做结构化深度学习，用 *codebase-to-course*；你要给 **`SKILL.md` 生态**做 **安装 → 触发 → 读哪些文件** 的一页总图，用 **Codebase to Web**。若我们对上游项目的描述和他们的最新版不一致，欢迎开 issue，我们改表述。
+
+---
+
 ## 实验室页长什么样？
 
 单个 **`.html`**，无需打包；字体首次需联网（Google Fonts）。含：GitHub 元数据、大白话、可步进 journey、分步（表面/背后）、目录树、README 简析、**Lab·Canonical** 视觉（可要求变体）。理念参考 [Anthropic `frontend-design`](https://github.com/anthropics/skills/tree/main/skills/frontend-design)。
@@ -76,7 +92,7 @@
 ## 设计理念
 
 **先 journey 再长文**；**能对话/树就不堆段**；**单文件可分享**。  
-应用代码深读用 [zarazhangrui/codebase-to-course](https://github.com/zarazhangrui/codebase-to-course)；**Skill 包与调用链**用 **Codebase to Web**。
+与 *codebase-to-course* 如何分工，见上文 **「启发来源：codebase-to-course，以及我们的不同」** 一节。
 
 ---
 
