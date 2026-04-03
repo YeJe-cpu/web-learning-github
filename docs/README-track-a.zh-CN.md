@@ -48,9 +48,9 @@
 
 ## 安装
 
-1. 拷贝本目录到 `~/.claude/skills/` 或 `.agents/skills/`。  
+1. 将本 skill 目录拷入对应宿主的 skills 路径（**Cursor** `.agents/skills/`，**Claude Code** `~/.claude/skills/`，**Windsurf** 以产品文档为准，**OpenClaw** 参见 [OpenClaw · Skills](https://docs.openclaw.ai/skills/)）。  
 2. 对模型说：把 `owner/repo` **做成 Skill 实验室单页**。  
-3. 默认输出：`skill-lab/<owner>-<repo>.html`。
+3. 默认输出：**`web/<owner>-<repo>.html`**（或在对话里指定目录）。
 
 ---
 

@@ -1,5 +1,5 @@
 # Generated lab pages (regenerate with the skill)
-skill-lab/*.html
+web/*.html
 
 # OS
 .DS_Store

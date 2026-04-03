@@ -12,7 +12,7 @@
 - [ ] GitHub **About** 描述与 Topics：抄 [GITHUB-ABOUT.md](GITHUB-ABOUT.md)  
 - [ ] `README.md` 首屏说清：**输入 / 输出 / 与 codebase-to-course 互补**
 - [ ] `LICENSE` 已选（当前 MIT）
-- [ ] Topics：`agent-skills` `claude-code` `cursor` `skill` `static-html` `education`
+- [ ] Topics：`agent-skills` `openclaw` `claude-code` `cursor` `windsurf` `skill` `static-html` `education`
 
 ## 蹭热点（得体、不尬）
 
@@ -22,7 +22,7 @@
 
 ## 演示资产（强烈建议下一迭代补）
 
-- [ ] 在 `skill-lab/` 放 1～2 个 **匿名化示例 HTML**（或截图），降低 clone 门槛  
+- [ ] 在 `web/` 放 1～2 个 **匿名化示例 HTML**（或截图），降低 clone 门槛  
 - [ ] 若发 HN / X：一条具体 **before/after**（README 迷宫 vs 单页 journey）
 
 ## 可选安装 devmarketing-skills

@@ -48,9 +48,9 @@ Default narrative language for generated pages is **Chinese** (实验室页). As
 
 ## Install (same as main repo)
 
-1. Copy this folder to `~/.claude/skills/` or `.agents/skills/`.  
+1. Copy this skill folder into your host’s skills directory (e.g. **Cursor** `.agents/skills/`, **Claude Code** `~/.claude/skills/`, **Windsurf** per product docs, **OpenClaw** per [OpenClaw · Skills](https://docs.openclaw.ai/skills/)).  
 2. Say: **“Turn `owner/repo` into a Skill Lab HTML.”**  
-3. Find output under `skill-lab/<owner>-<repo>.html` by default.
+3. Default output: **`web/<owner>-<repo>.html`** (or a path you specify in chat).
 
 ---
 

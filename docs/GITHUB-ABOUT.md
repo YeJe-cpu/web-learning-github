@@ -1,38 +1,27 @@
-# GitHub “About” box (copy-paste)
+# GitHub “About” box — [YeJe-cpu/codebase-to-web](https://github.com/YeJe-cpu/codebase-to-web)
 
-Learned from [zarazhangrui/codebase-to-course](https://github.com/zarazhangrui/codebase-to-course): **one-line description** + tight topics + website optional.
+## Short description (Repository description)
 
-## Short description (Repository description field)
+**English (recommended):**
 
-**Option 1 — Track B tone (closest to codebase-to-course):**
+> Agent skill: turn GitHub Agent Skill repos into a single-page HTML lab—journey map, install path, tree, README context. Works with Cursor, Claude Code, Windsurf, OpenClaw.
 
-> A Claude Code skill that turns Agent Skill repos into a beautiful, self-contained single-page HTML lab—journey map, install path, and README context.
+**Shorter:**
 
-**Option 2 — shorter (fits smaller UI previews):**
+> Agent Skill repo → single HTML lab. Cursor · Claude Code · Windsurf · OpenClaw.
 
-> Claude Code skill: GitHub Agent Skill repo → single-page HTML lab (journey + tree + README).
+**中文：**
 
-**Option 3 — Chinese-primary projects:**
-
-> 将 GitHub Agent Skill 开源仓生成为单文件「实验室」HTML：组件路径 journey、分步说明与目录树。（Claude Code / Cursor）
-
-Character counts: tweak if GitHub trims (aim &lt; 350 characters for safety).
+> 将 GitHub Agent Skill 仓生成为单文件实验室 HTML（journey + 树 + README）。支持 Cursor / Claude Code / Windsurf / OpenClaw。
 
 ## Topics (suggested)
 
-`claude-code` · `cursor` · `windsurf` · `agent-skills` · `skill` · `llm` · `static-site` · `html` · `developer-tools` · `education`
-
-(Add `chinese` if you want language discoverability.)
-
-## Website
-
-Leave blank unless you have a docs site or demo on GitHub Pages.
+`openclaw` · `cursor` · `claude-code` · `windsurf` · `agent-skills` · `skill` · `llm` · `html` · `static-site` · `developer-tools` · `education` · `chinese`
 
 ## Social preview
 
-When ready: add **Open Graph** image via repo Settings → General → **Social preview** (screenshot of sample `skill-lab/*.html`).
+Use a screenshot of a sample `web/*.html` (sanitized repo).
 
-## Alternate README for “About” alignment
+## Alternate README
 
-- **Track A (dev marketing):** [README-track-a.md](README-track-a.md)  
-- **Track B (codebase-to-course shape):** root [README.md](../README.md)
+Track A (optional): [README-track-a.md](README-track-a.md)

@@ -1,15 +1,12 @@
-# Repo name ideas (pick one vibe)
+# Repo name ideas (historical + current)
 
-> Current working name: **`repo-to-skill-lab`** — mirrors [codebase-to-course](https://github.com/zarazhangrui/codebase-to-course) “X → Y” pattern.
+> **Published name:** [`codebase-to-web`](https://github.com/YeJe-cpu/codebase-to-web) — parallels [codebase-to-course](https://github.com/zarazhangrui/codebase-to-course) “X → Y” pattern; default output under `web/`.
 
 | Name | Pros | Cons |
 |------|------|------|
-| **repo-to-skill-lab** | Memorable pairing with “codebase-to-course”; SEO-ish “skill lab”. | Slightly long; `repo` is generic. |
-| **skill-to-lab** | Short; “skill” in first token. | Less parallel to “codebase-to-course”. |
-| **agentskill-to-lab** | Niche-clear for Agent Skills. | Verbose; hyphen noise. |
-| **skill-journey-html** | Says output shape (journey + html). | Drops “repo” input cue. |
-| **onepage-skill-map** | Plain English outcome. | Less discoverable on GitHub. |
-| **skillpack-lab** | Friendly; “pack” = bundle of skills. | Ambiguous (npm pack, etc.). |
-| **oss-skill-lab** | Short; matches old internal name mentally. | “OSS” doesn’t say *HTML output*. |
+| **codebase-to-web** *(chosen)* | Clear input (`codebase` / Skill repo) + output (`web/` HTML). | Doesn’t say “lab” in the slug. |
+| **repo-to-skill-lab** | SEO-ish “skill lab”. | Generic `repo`; path no longer `skill-lab/`. |
+| **skill-to-lab** | Short. | Less parallel to “codebase-to-course”. |
+| **oss-skill-lab** | Matches old internal folder mentally. | “OSS” doesn’t say *HTML output*. |
 
-**GitHub slug tips:** lowercase, hyphens; avoid `agent-skills` alone (too broad). Pair with good **Topics** (see [GITHUB-ABOUT.md](GITHUB-ABOUT.md)).
+**GitHub slug tips:** lowercase, hyphens; pair with good **Topics** (see [GITHUB-ABOUT.md](GITHUB-ABOUT.md)).
