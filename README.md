@@ -6,13 +6,26 @@ Point it at a skills repo. Get back a **lab you can double-click**—**scroll-fr
 
 **Repo:** [github.com/YeJe-cpu/codebase-to-web](https://github.com/YeJe-cpu/codebase-to-web) · [中文说明](README.zh-CN.md)
 
-> Optional alternate positioning (dev-marketing framing): [docs/README-track-a.md](docs/README-track-a.md) · [中文](docs/README-track-a.zh-CN.md)
+---
+
+## Where is the skill on GitHub?
+
+The skill **is** this repo. After `git clone`, you get:
+
+| File / folder | Role |
+|---------------|------|
+| **[`SKILL.md`](SKILL.md)** | Main skill instructions (what hosts usually load). |
+| **[`SKILL.zh-CN.md`](SKILL.zh-CN.md)** | Same rules in Chinese; optional if you merge into one file. |
+| **`references/`** | Extra rules the agent reads when **generating** the HTML lab—fonts/colors, layout checklist, design guardrails. Not a second product; see [`references/README.md`](references/README.md). |
+| **`web/`** | Default **output** folder for generated `.html` (repo keeps only `.gitkeep`; real pages are local / gitignored). |
+
+There is **no** separate “Skill Lab” source folder name on disk—the old working title was `oss-skill-lab-html`; the publishable bundle lives **here** under **`codebase-to-web`**.
 
 ---
 
 ## What’s on GitHub
 
-This repository contains **only** the publishable skill folder (**codebase-to-web** — same skill previously iterated as `oss-skill-lab-html`). It does **not** include your broader workspace, private notes, or unrelated “材料” trees—only what lives in this repo root is what gets cloned from GitHub. See [docs/README.md](docs/README.md) for what the small `docs/` extras are.
+Only the files above plus READMEs, `LICENSE`, and a tiny [`docs/`](docs/README.md) helper (GitHub “About” copy). Not your whole `emo专用` workspace.
 
 ---
 
@@ -118,7 +131,7 @@ codebase-to-web/
 ├── SKILL.md
 ├── SKILL.zh-CN.md
 ├── references/
-├── docs/              # optional: Track A readmes, GitHub About helper — see docs/README.md
+├── docs/              # optional: GitHub About copy — see docs/README.md
 ├── web/
 ├── README.md
 └── README.zh-CN.md

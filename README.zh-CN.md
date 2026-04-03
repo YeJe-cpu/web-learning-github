@@ -6,13 +6,26 @@
 
 **仓库：** [github.com/YeJe-cpu/codebase-to-web](https://github.com/YeJe-cpu/codebase-to-web) · [English](README.md)
 
-> 可选另一套叙事（开发者营销取向）：[Track A 中文](docs/README-track-a.zh-CN.md) · [EN](docs/README-track-a.md)
+---
+
+## Skill 在仓库里长什么样？（GitHub 上能看到吗？）
+
+**能。** Skill **就是本仓库**，不是别的目录。克隆后你会看到：
+
+| 路径 | 作用 |
+|------|------|
+| **[`SKILL.md`](SKILL.md)** | 主技能说明（多数宿主默认读这个文件）。 |
+| **[`SKILL.zh-CN.md`](SKILL.zh-CN.md)** | 中文规则的完整副本；可选，也可合并进一份 `SKILL.md`。 |
+| **`references/`** | 生成 HTML **实验室页**时模型要参考的补充说明：配色字体、版式检查、别做成大紫渐变那张图——**不是**另一个独立产品。通俗说明见 **[`references/README.md`](references/README.md)**。 |
+| **`web/`** | **生成结果**默认落盘处；仓库里只保留占位（`.gitkeep`），真实 `.html` 一般不入库（见 `.gitignore`）。 |
+
+以前口头叫 **Skill Lab** / **`oss-skill-lab-html`**，指的是**这类单页 HTML 的产出**；**源代码形态的 skill** 就在本仓库根目录的 **`SKILL.md`**（以及 `references/`），没有名为 `skill-lab` 的子文件夹专门存 skill。
 
 ---
 
 ## GitHub 上到底是什么
 
-这里发布的是 **可分享的 skill 包**（原迭代名 **`oss-skill-lab-html`**，仓库名 **codebase-to-web**）。**没有**把你整个 `emo专用` 工作区或其它「材料文件夹」上传上去；他人 `git clone` 只会得到本仓库根目录这些文件。可选说明见 [docs/README.md](docs/README.md)。
+只有上述 skill 包 + 双 README + `LICENSE` + 很小的 [`docs/`](docs/README.md)（给仓库 About 栏复制用）。**没有**上传你整个 `emo专用` 工作区。
 
 ---
 
@@ -74,7 +87,7 @@ codebase-to-web/
 ├── SKILL.md
 ├── SKILL.zh-CN.md
 ├── references/
-├── docs/           # 可选：Track A、GitHub About 文案 — 见 docs/README.md
+├── docs/           # 可选：GitHub About 文案 — 见 docs/README.md
 ├── web/
 ├── README.md
 └── README.zh-CN.md

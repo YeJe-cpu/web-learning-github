@@ -1,12 +1,9 @@
-# About `docs/` in this repo
+# `docs/` 夹里有什么 · What’s in `docs/`
 
-This folder is **small and optional**. It is **not** part of the skill runtime (agents read `SKILL.md` + `references/` from the repo root).
+这里**不是** skill 运行时必读内容。Agent 实际加载的是仓库根目录的 `SKILL.md`（以及 `references/`）。
 
-| File | Purpose |
-|------|---------|
-| [GITHUB-ABOUT.md](GITHUB-ABOUT.md) | Copy-paste hints for the GitHub **About** box (description + topics). |
-| [README-track-a.md](README-track-a.md) / [README-track-a.zh-CN.md](README-track-a.zh-CN.md) | **Alternate** top-level README positioning (developer-marketing style). Use only if you replace the default `README.md` on your fork. |
+| 文件 | 用途 |
+|------|------|
+| [GITHUB-ABOUT.md](GITHUB-ABOUT.md) | 给维护者：GitHub 仓库 **About** 栏的简介 / Topics 文案，可复制粘贴。 |
 
-**Not shipped anymore:** maintainer-only drafts (launch checklist, old repo-name brainstorms) were removed from the tree so the repo stays a clean **publishable skill bundle** plus user-facing READMEs.
-
-**Not in this repo:** your full `emo专用` workspace, demos, or private notes—clone only [`YeJe-cpu/codebase-to-web`](https://github.com/YeJe-cpu/codebase-to-web) if you want the OSS package.
+若你希望公开仓库里连这个也不要，可自行删除；不影响 skill 功能。

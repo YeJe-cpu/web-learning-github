@@ -54,8 +54,10 @@ Per `.chat-window`: `typing-avatar` id = `{chatWindowId}-typing-avatar`; message
 
 ## More
 
+Start here if the folder names look cryptic: **`references/README.md`** (plain-language map).
+
 - `references/workflow.md`
 - `references/ui-tokens.md`
 - `references/frontend-design-notes.md`
 
-**Chinese skill text & references:** `SKILL.zh-CN.md`, `references/*.zh-CN.md`.
+**Chinese:** `SKILL.zh-CN.md`, `references/*.zh-CN.md`.

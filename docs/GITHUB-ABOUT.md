@@ -21,7 +21,3 @@
 ## Social preview
 
 Use a screenshot of a sample `web/*.html` (sanitized repo).
-
-## Alternate README
-
-Track A (optional): [README-track-a.md](README-track-a.md)
