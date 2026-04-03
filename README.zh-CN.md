@@ -4,6 +4,16 @@
 
 English：[README.md](README.md) · 仓库：[YeJe-cpu/web-learning-github](https://github.com/YeJe-cpu/web-learning-github)
 
+## 演示（长什么样）
+
+以下为针对**本仓库**生成的 **中文** 界面截图与录屏（源文件：[`web/YeJe-cpu-web-learning-github.html`](web/YeJe-cpu-web-learning-github.html)）。克隆后本地打开即可；顶部可切换 **English / 中文**，组件路径区支持 **下一条 · 全部播放 · 重播**。
+
+![总览 — 标题区、用法提示、仓库信息、大白话与交付物（中文）](./assets/demo-zh-hero.png)
+
+![组件路径交互 — 下一条 / 全部播放 / 重播（中文，GIF）](./assets/demo-zh-interaction.gif)
+
+![分步旅程双列与目录树片段（中文）](./assets/demo-zh-steps-tree.png)
+
 ---
 
 ## 适合谁？
@@ -26,9 +36,7 @@ README 往往写得很概括，真实入口在 Hook、`references/` 或子命令
 - 简短的 README 侧写（需求、传播、注意点）
 - 默认版式代号 Lab·Canonical（暖色、清晰版心），纪律上可参考 [Anthropic frontend-design](https://github.com/anthropics/skills/tree/main/skills/frontend-design)。首次打开若用 Google Fonts 可能要联网，之后可依赖缓存离线看。
 
-### 示例页
-
-克隆仓库后本地打开 [`web/demo.html`](web/demo.html)，顶部可切换 English / 中文。若要在本 README 配图，可把截图放到 `assets/demo-screenshot.png`，写 `![预览](./assets/demo-screenshot.png)` 即可。
+更短的示例页见 [`web/demo.html`](web/demo.html)。与上图一致的 **fd-pass 完整版式** 请打开 **`web/YeJe-cpu-web-learning-github.html`**。
 
 ---
 
@@ -68,8 +76,10 @@ web-learning-github/
 ├── SKILL.md
 ├── SKILL.zh-CN.md
 ├── references/
+├── assets/             # README 演示配图
 ├── web/
-│   └── demo.html
+│   ├── demo.html
+│   └── YeJe-cpu-web-learning-github.html
 ├── README.md
 ├── README.zh-CN.md
 └── LICENSE

@@ -4,6 +4,16 @@ An agent skill for Cursor, Claude Code, Windsurf, OpenClaw, and similar hosts. P
 
 中文说明：[README.zh-CN.md](README.zh-CN.md) · Repository: [YeJe-cpu/web-learning-github](https://github.com/YeJe-cpu/web-learning-github)
 
+## Demo (what you get)
+
+Below is the **English** walkthrough for this repo, generated as [`web/YeJe-cpu-web-learning-github.html`](web/YeJe-cpu-web-learning-github.html). Clone and open locally; **English / 中文** toggle at the top, **Next · Play all · Reset** on the component path.
+
+![Overview — hero, meta, plain-language intro, deliverables (English)](./assets/demo-en-hero.png)
+
+![Component path bubbles and two-column step journey (English)](./assets/demo-en-path-steps.png)
+
+![Playback controls — Next, Play all, Reset (English, GIF)](./assets/demo-en-interaction.gif)
+
 ---
 
 ## Who is this for?
@@ -26,9 +36,7 @@ Output is one HTML file (no bundler). Typical sections:
 - Short README context bullets (demand, spread, caveats)
 - Typography and layout follow our default design token Lab·Canonical (warm editorial style); ideas align with [Anthropic frontend-design](https://github.com/anthropics/skills/tree/main/skills/frontend-design). First load may fetch Google Fonts; after that it can work offline from cache.
 
-### Demo
-
-See [`web/demo.html`](web/demo.html) for a bilingual (EN / 中文) sample you can open locally after cloning. Optional screenshot for this README: put `assets/demo-screenshot.png` in the repo and use `![Demo](./assets/demo-screenshot.png)`.
+A shorter bilingual sample lives at [`web/demo.html`](web/demo.html). For the full fd-pass layout (as in the screenshots), use **`web/YeJe-cpu-web-learning-github.html`**.
 
 ---
 
@@ -68,8 +76,10 @@ web-learning-github/
 ├── SKILL.md
 ├── SKILL.zh-CN.md
 ├── references/
+├── assets/             # README demo images
 ├── web/
-│   └── demo.html       # committed sample; other web/*.html usually gitignored
+│   ├── demo.html
+│   └── YeJe-cpu-web-learning-github.html
 ├── README.md
 ├── README.zh-CN.md
 └── LICENSE
